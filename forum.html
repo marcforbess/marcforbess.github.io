@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forbes.co - Forum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="css/dashboard-page.css" />
+    <link rel="stylesheet" href="css/forum-page.css" />
+</head>
+
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-dot"></span>
+                <div>
+                    <p class="brand-name">forbes.co</p>
+                    <p class="brand-sub" style="font-weight: bold;">v1.0.0</p>
+                    <p id="brand-date" class="brand-sub"></p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary">
+                <button class="nav-item" onclick="window.location.href='dashboard.html'">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" onclick="window.location.href='mails.html'">
+                    <i class="bi bi-envelope"></i>
+                    <span>Mails</span>
+                </button>
+                <button class="nav-item active" onclick="window.location.href='forum.html'">
+                    <i class="bi bi-chat-quote"></i>
+                    <span>Forum</span>
+                </button>
+                <button class="nav-item" onclick="window.location.href='profile.html'">
+                    <i class="bi bi-person"></i>
+                    <span>My Profile</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <!-- <div class="sidebar-note">
+                    <p class="note-title">Today’s vibe</p>
+                    <p class="note-copy">Share your thoughts with the community.</p>
+                </div> -->
+                <button id="logout-btn" class="btn solid sidebar-logout" type="button">
+                    <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+                        <i class="bi bi-layout-sidebar-inset"></i>
+                    </button>
+                    <div>
+                        <h1>Forum</h1>
+                        <p id="session-status" class="session-status">Checking community...</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="forum-container">
+                <!-- Create Post -->
+                <section class="create-post">
+                    <img src="media/profile-pic.jpeg" alt="User" class="user-avatar">
+                    <div class="post-input-wrap">
+                        <textarea rows="2" placeholder="What's happening?"></textarea>
+                        <div class="post-actions">
+                            <div class="post-tools">
+                                <button class="tool-btn"><i class="bi bi-image"></i></button>
+                                <button class="tool-btn"><i class="bi bi-list-ul"></i></button>
+                                <button class="tool-btn"><i class="bi bi-emoji-smile"></i></button>
+                                <button class="tool-btn"><i class="bi bi-calendar-event"></i></button>
+                            </div>
+                            <button class="post-btn">Post</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feed -->
+                <section id="forum-feed" class="forum-feed">
+                    <!-- Dynamic posts injected here -->
+                </section>
+            </div>
+        </main>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <!-- Redirect Loading Overlay -->
+        <div id="system-overlay" class="system-overlay">
+            <div class="system-content">
+                <div class="spinner"></div>
+                <p id="system-message">Redirecting...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/forum-page.js"></script>
+</body>
+
+</html>

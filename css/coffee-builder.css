@@ -1,0 +1,409 @@
+/* Coffee Builder Styling */
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.builder-container {
+    padding: 1rem 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.builder-card {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+}
+
+.builder-section {
+    margin-bottom: 2rem;
+}
+
+.builder-section h3 {
+    font-size: 1.15rem;
+    color: var(--burgundy);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Pills */
+.pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.pill-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.pill-btn:hover {
+    background: var(--pink-light);
+    border-color: #fce7ef;
+}
+
+.pill-btn.selected {
+    background: var(--burgundy);
+    color: white;
+    border-color: var(--burgundy);
+    box-shadow: 0 4px 15px rgba(127, 47, 75, 0.2);
+}
+
+/* Counters */
+.counter-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fdfafd;
+    border: 1px solid var(--line);
+    padding: 0.5rem;
+    border-radius: 999px;
+    width: fit-content;
+}
+
+.counter-wrap.small {
+    gap: 1rem;
+    padding: 0.3rem;
+}
+
+.icon-btn {
+    background: white;
+    border: 1px solid var(--line);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--burgundy);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.counter-wrap.small .icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+}
+
+.icon-btn:hover {
+    background: var(--pink-light);
+    border-color: #fce7ef;
+    transform: scale(1.05);
+}
+
+.counter-val {
+    font-size: 1.2rem;
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
+}
+
+.counter-wrap.small .counter-val {
+    font-size: 1rem;
+    min-width: 15px;
+}
+
+/* Syrups */
+.syrup-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.syrup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--line);
+}
+
+.syrup-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.syrup-name {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.brew-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 12px;
+}
+
+/* Result Ticket */
+.result-card {
+    background: linear-gradient(to bottom, #fdfafd, #ffffff);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.ticket {
+    background: white;
+    border: 1px solid var(--line);
+    width: 100%;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    position: relative;
+    font-family: monospace;
+    /* Receipt style */
+}
+
+/* Add receipt jagged edges */
+.ticket::before,
+.ticket::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-size: 20px 20px;
+}
+
+.ticket::before {
+    top: -5px;
+    background-image: radial-gradient(circle at 10px 0, transparent 11px, white 12px, var(--line) 13px, transparent 13px);
+}
+
+.ticket::after {
+    bottom: -5px;
+    background-image: radial-gradient(circle at 10px 20px, transparent 10px, white 11px, var(--line) 12px, transparent 12px);
+}
+
+.ticket-brand {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--burgundy);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.ticket-divider {
+    border-top: 2px dashed #e1d3d9;
+    margin: 1.5rem 0;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    padding: 2rem 0;
+}
+
+.order-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--burgundy);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: "Inter", sans-serif;
+}
+
+.recipe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.recipe-key {
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.recipe-val {
+    font-weight: bold;
+    text-align: right;
+    word-break: break-word;
+}
+
+@media (max-width: 600px) {
+
+    .builder-card,
+    .result-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .ticket {
+        padding: 1.5rem 1rem;
+    }
+
+    .recipe-item {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .recipe-val {
+        text-align: left;
+    }
+}
+
+.ticket-bottom {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.barcode {
+    width: 80%;
+    height: 40px;
+    background: repeating-linear-gradient(90deg,
+            #000,
+            #000 2px,
+            transparent 2px,
+            transparent 4px,
+            #000 4px,
+            #000 5px,
+            transparent 5px,
+            transparent 8px);
+    opacity: 0.6;
+}
+
+.thanks-note {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* Modal Styling from Hochi Page */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 30, 38, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fff;
+    background: linear-gradient(135deg, #fff 0%, #fffbfd 100%);
+    border-radius: 32px;
+    padding: 3.5rem 2.5rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(127, 47, 75, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: modalPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: shimmer 4s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(0deg) translate(-10%, -10%);
+    }
+
+    100% {
+        transform: rotate(360deg) translate(-10%, -10%);
+    }
+}
+
+@keyframes modalPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-visual {
+    width: 100px;
+    height: 100px;
+    background: #fff8e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 3.5rem;
+    box-shadow: 0 8px 20px rgba(255, 202, 40, 0.2);
+    border: 3px solid #fff;
+}
+
+.modal-content h2 {
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+#modal-item-name {
+    font-weight: 700;
+    color: #5a4752;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.modal-content p:not(#modal-item-name) {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forbes.co - My Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="css/dashboard-page.css" />
+    <link rel="stylesheet" href="css/profile-page.css" />
+    <link rel="stylesheet" href="css/unlock-modal.css" />
+    <link rel="stylesheet" href="css/restore-modal.css" />
+</head>
+
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-dot"></span>
+                <div>
+                    <p class="brand-name">forbes.co</p>
+                    <p class="brand-sub" style="font-weight: bold;">v1.0.0</p>
+                    <p id="brand-date" class="brand-sub"></p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary">
+                <button class="nav-item" onclick="window.location.href='dashboard.html'">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" onclick="window.location.href='mails.html'">
+                    <i class="bi bi-envelope"></i>
+                    <span>Mails</span>
+                </button>
+                <button class="nav-item" onclick="window.location.href='forum.html'">
+                    <i class="bi bi-chat-quote"></i>
+                    <span>Forum</span>
+                </button>
+                <button class="nav-item active" onclick="window.location.href='profile.html'">
+                    <i class="bi bi-person"></i>
+                    <span>My Profile</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <!-- <div class="sidebar-note">
+                    <p class="note-title">Today’s vibe</p>
+                    <p class="note-copy">Profile looking sharp, Jasmine.</p>
+                </div> -->
+                <button id="logout-btn" class="btn solid sidebar-logout" type="button">
+                    <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+                        <i class="bi bi-layout-sidebar-inset"></i>
+                    </button>
+                    <div>
+                        <h1>My Profile</h1>
+                        <p id="session-status" class="session-status">Personal Information</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="profile-container">
+                <div class="profile-hero">
+                    <div class="profile-avatar-wrap">
+                        <img src="media/profile-pic.jpeg" alt="Jasmine" class="profile-avatar">
+                    </div>
+                    <div class="profile-meta">
+                        <h2 class="profile-fullname">Jasmine Seraphina Nasinin</h2>
+                        <p class="profile-username">@jasmine</p>
+                        <p class="profile-title">Chemist</p>
+                        <div class="profile-badges">
+                            <span class="badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+                            <span class="badge"><i class="bi bi-briefcase"></i>@slb</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <section class="profile-section info-card">
+                        <h3><i class="bi bi-info-circle"></i> About Me</h3>
+                        <div class="info-item">
+                            <span class="label">Job Title</span>
+                            <span class="value">Chemist</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Birthday</span>
+                            <span class="value">March 12, 2000</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Hobbies & Interests</span>
+                            <div class="hobbies-list">
+                                <span class="hobby-tag">Make Up</span>
+                                <span class="hobby-tag">Food</span>
+                                <span class="hobby-tag">Baking</span>
+                                <span class="hobby-tag">Fashion</span>
+                                <span class="hobby-tag">Cafe hopping</span>
+                                <span class="hobby-tag">Travelling</span>
+                                <span class="hobby-tag">Photography</span>
+                                <span class="hobby-tag">Singing</span>
+                                <span class="hobby-tag">Shopping</span>
+                                <span class="hobby-tag">Music</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="profile-section info-card">
+                        <h3><i class="bi bi-heart"></i> Personal Favorites</h3>
+                        <div class="info-item">
+                            <span class="label">Favorite Cuisine</span>
+                            <span class="value">Italian</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Favorite Music</span>
+                            <span class="value">Diverse (Primarily K-Pop)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Favorite Matcha</span>
+                            <span class="value">Mango Matcha</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Favorite Coffee</span>
+                            <button class="btn ghost coffee-btn" onclick="window.location.href='coffee-builder.html'"
+                                style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                                <i class="bi bi-cup-hot"></i> Build Your Own
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="profile-section info-card">
+                        <h3><i class="bi bi-hearts"></i> Relationship</h3>
+                        <div class="info-item">
+                            <span class="label">Status</span>
+                            <span class="value">In a Relationship</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Partner</span>
+                            <span class="value">Marc Forbes</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Together Since</span>
+                            <span class="value">September 30, 2018</span>
+                        </div>
+                    </section>
+
+                    <section class="profile-section info-card fun-facts">
+                        <h3><i class="bi bi-stars"></i> Fun Facts</h3>
+                        <div class="fact-list">
+                            <div class="fact-item" id="chicken-fact-item">
+                                <div class="fact-icon"><i class="bi bi-egg-fried"></i></div>
+                                <div class="fact-info">
+                                    <span class="fact-label">Favorite Chicken Part</span>
+                                    <div class="fact-value-wrapper">
+                                        <span class="fact-value" id="chicken-part-value">The Mighty Chicken
+                                            Breast</span>
+                                        <span class="edit-hint" data-tooltip="Not quite right? Lets fix that">
+                                            <i class="bi bi-question-circle"></i>
+                                        </span>
+                                    </div>
+                                    <!-- Selector -->
+                                    <div class="chicken-selector" id="chicken-selector" style="display: none;">
+                                        <p class="selector-hint">Not quite right? Let's fix that!</p>
+                                        <button class="choice-btn" data-val="Drumstick">Drumstick</button>
+                                        <button class="choice-btn" data-val="Thigh">Thigh</button>
+                                        <button class="choice-btn" data-val="Bones">Bones</button>
+                                        <button class="choice-btn" data-val="Breast">Breast</button>
+                                        <button class="choice-btn" data-val="Wings">Wings</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fact-item">
+                                <div class="fact-icon"><i class="bi bi-controller"></i></div>
+                                <div class="fact-info">
+                                    <span class="fact-label">Favorite AAA Game</span>
+                                    <span class="fact-value">Read Dead Redemption 2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="profile-gallery info-card">
+                    <div class="gallery-header">
+                        <h3><i class="bi bi-images"></i>My Gallery</h3>
+                        <div class="carousel-controls">
+                            <button id="gallery-prev" class="icon-btn"><i class="bi bi-chevron-left"></i></button>
+                            <button id="gallery-next" class="icon-btn"><i class="bi bi-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div id="profile-carousel" class="carousel-track">
+                            <!-- Dynamic Gallery Content -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    </div>
+
+    <!-- Restoration Mini-Game Modal -->
+    <div id="restore-modal" class="restore-modal">
+        <div class="restore-content" data-state="game">
+            <!-- Phase 1: Drag & Drop (Recovery Initiation) -->
+            <div class="phase-container" id="phase-1">
+                <div class="restore-header">
+                    <h2>Phase 1: Recovery Initiation</h2>
+                    <p>Drag the recovery essence to the corrupted file</p>
+                </div>
+                <div class="restoration-zone">
+                    <div id="drag-flask" class="item-flask" draggable="true">
+                        <i class="bi bi-magic"></i>
+                    </div>
+                    <div id="drop-target" class="target-file">
+                        <i class="bi bi-file-earmark-medical"></i>
+                        <span>IMG_CORRUPT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Data Extraction (Fast Mashing) -->
+            <div class="phase-container" id="phase-2">
+                <div class="restore-header">
+                    <h2>Phase 2: Data Extraction</h2>
+                    <p>Mash the icon to extract data fragments!</p>
+                </div>
+                <div class="mashing-zone">
+                    <div class="progress-bar-wrap">
+                        <div id="mash-progress" class="progress-fill"></div>
+                    </div>
+                    <div id="mash-circle" class="mash-circle">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Alignment (Random Clicks) -->
+            <div class="phase-container" id="phase-3">
+                <div class="restore-header">
+                    <h2>Phase 3: Pixel Alignment</h2>
+                    <p>Catch the moving data nodes to finalize!</p>
+                </div>
+                <div class="alignment-zone" id="alignment-zone">
+                    <div id="alignment-target" class="alignment-target">
+                        <i class="bi bi-crosshair"></i>
+                    </div>
+                </div>
+                <div class="alignment-counter">Nodes localized: <span id="align-count">0</span> / 6</div>
+            </div>
+
+            <!-- Loading View -->
+            <div id="restoration-loading" class="restoration-loading">
+                <div class="restore-spinner"></div>
+                <p>Decoding scrambled data blocks...</p>
+            </div>
+
+            <!-- Confirmation View -->
+            <div id="confirmation-view" class="confirmation-view">
+                <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: #4caf50;"></i>
+                <h3>Restoration Successful</h3>
+                <div class="partial-warning" style="background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9;">
+                    <p>The system has successfully fully recovered the original image data. All pixels have been
+                        aligned.</p>
+                </div>
+                <div class="modal-actions">
+                    <button id="cancel-restore" class="btn ghost">Close</button>
+                    <button id="confirm-restore" class="btn solid">Complete Restoration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/inventory-page.js"></script>
+    <script src="js/audio-manager.js"></script>
+    <script src="js/unlock-modal.js"></script>
+    <script src="js/profile-page.js"></script>
+</body>
+
+</html>

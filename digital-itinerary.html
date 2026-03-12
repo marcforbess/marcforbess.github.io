@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Perfect Day</title>
+    <!-- Cute Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;700;800&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/digital-itinerary.css">
+</head>
+
+<body>
+
+    <!-- Abstract Shapes for Background -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+
+    <div class="itinerary-wrapper">
+        <header class="header">
+            <h1>The Birthdate v26</h1>
+            <p id="itinerary-date">Loading...</p>
+        </header>
+
+        <main id="itinerary-content" class="timeline">
+            <!-- Timeline items injected here via JS -->
+            <div class="loading-state">
+                <i class="bi bi-balloon-heart"></i>
+                <p>Curating your special moments...</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <h3>See you soon! <i class="bi bi-heart-fill"></i></h3>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/itinerary-config.js"></script>
+    <script src="js/digital-itinerary.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>forbes.co - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/dashboard-page.css" />
+</head>
+
+<body>
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <div>
+          <p class="brand-name">forbes.co</p>
+          <p class="brand-sub" style="font-weight: bold;">v1.0.0</p>
+          <p id="brand-date" class="brand-sub"></p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <button class="nav-item active" onclick="window.location.href='dashboard.html'">
+          <i class="bi bi-speedometer2"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" onclick="window.location.href='mails.html'">
+          <i class="bi bi-envelope"></i>
+          <span>Mails</span>
+        </button>
+        <button class="nav-item" onclick="window.location.href='forum.html'">
+          <i class="bi bi-chat-quote"></i>
+          <span>Forum</span>
+        </button>
+        <button class="nav-item" onclick="window.location.href='profile.html'">
+          <i class="bi bi-person"></i>
+          <span>My Profile</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <!-- <div class="sidebar-note">
+          <p class="note-title">Today’s vibe</p>
+          <p class="note-copy">Pastel mode is on. Keep it bright and tidy.</p>
+        </div> -->
+        <button id="logout-btn" class="btn solid sidebar-logout" type="button">
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+            <i class="bi bi-layout-sidebar-inset"></i>
+          </button>
+          <div>
+            <h1>Dashboard</h1>
+            <p id="session-status" class="session-status">Checking session...</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats-grid" aria-label="Summary statistics">
+        <article class="stat-card">
+          <div class="stat-head">
+            <p>My Events</p>
+            <i class="bi bi-calendar-x stat-icon orders" aria-hidden="true"></i>
+          </div>
+          <h2 id="orders-today">0</h2>
+          <span>Imminent celebrations</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-head">
+            <p>Love Points</p>
+            <i class="bi bi-arrow-through-heart stat-icon revenue" aria-hidden="true"></i>
+          </div>
+          <h2 id="revenue-today">$0</h2>
+          <span>Strong relationship indicator</span>
+        </article>
+        <article class="stat-card clickable" onclick="window.location.href='inventory.html'">
+          <div class="stat-head">
+            <p>Inventory Items</p>
+            <i class="bi bi-box-seam stat-icon stock" aria-hidden="true"></i>
+          </div>
+          <h2 id="low-stock-count">12/40</h2>
+          <span>Explore to unlock</span>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel orders-panel">
+          <div class="panel-head">
+            <h3>System Logs</h3>
+            <!-- <button class="text-btn" type="button">Refresh</button> -->
+          </div>
+          <div class="logs-table-wrap">
+            <table id="logs-table">
+              <thead>
+                <tr>
+                  <th class="log-time">Timestamp</th>
+                  <th class="log-event">Description</th>
+                  <th class="priority-col">Priority</th>
+                </tr>
+              </thead>
+              <tbody id="logs-body"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel tasks-panel">
+          <div class="panel-head">
+            <h3>Quick Tasks</h3>
+          </div>
+          <ul id="task-list" class="task-list"></ul>
+        </article>
+
+        <article class="panel music-panel">
+          <div class="panel-head">
+            <h3>My Jams</h3>
+          </div>
+          <div class="music-widget">
+            <div class="music-info">
+              <div class="record-wrapper">
+                <img id="music-cover" src="media/music1.png" alt="Music Cover" class="music-cover">
+                <div class="record-hole"></div>
+              </div>
+              <div class="track-details">
+                <p id="track-name" class="track-name">Music 1</p>
+                <p id="track-artist" class="track-artist">forbes.co vibes</p>
+              </div>
+            </div>
+            <div class="music-controls">
+              <button id="prev-track" class="music-btn" aria-label="Previous Track">
+                <i class="bi bi-skip-backward-fill"></i>
+              </button>
+              <button id="play-pause" class="music-btn play-btn" aria-label="Play/Pause">
+                <i id="play-icon" class="bi bi-play-fill"></i>
+              </button>
+              <button id="next-track" class="music-btn" aria-label="Next Track">
+                <i class="bi bi-skip-forward-fill"></i>
+              </button>
+            </div>
+            <div class="music-progress">
+              <div id="progress-bar" class="progress-bar"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  </div>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/dashboard-page.js"></script>
+</body>
+
+</html>

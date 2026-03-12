@@ -1,0 +1,327 @@
+/* Digital Itinerary Themes */
+:root {
+    --bg-color: #fdfafb;
+    --accent-pink: #ffb7b2;
+    --accent-peach: #ffdac1;
+    --accent-mint: #b5ead7;
+    --accent-lilac: #c7ceea;
+    --text-primary: #5c4d57;
+    --text-secondary: #9c8a95;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    /* Soft Polka Dot overlay */
+    background-image: radial-gradient(var(--accent-peach) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Abstract Floating Background Shapes */
+.shape {
+    position: fixed;
+    z-index: 0;
+    opacity: 0.4;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.shape-1 {
+    top: -10%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: var(--accent-pink);
+    animation: float1 15s infinite alternate ease-in-out;
+}
+
+.shape-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    background: var(--accent-mint);
+    animation: float2 20s infinite alternate-reverse ease-in-out;
+}
+
+.shape-3 {
+    top: 40%;
+    left: 40%;
+    width: 40vw;
+    height: 40vw;
+    background: var(--accent-lilac);
+    animation: float1 25s infinite alternate ease-in-out;
+}
+
+@keyframes float1 {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.1) translate(50px, 50px);
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.2) translate(-50px, -50px);
+    }
+}
+
+/* Main Wrapper */
+.itinerary-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 600px;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
+    color: #ff8b94;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+    transform: rotate(-2deg);
+}
+
+.header p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Timeline Container */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+/* Timeline Vertical Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -5px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-pink), var(--accent-mint), var(--accent-lilac));
+    border-radius: 4px;
+}
+
+/* Section Cards */
+.section-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 35px rgba(255, 139, 148, 0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Timeline Dots */
+.section-card::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 35px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 4px solid var(--accent-pink);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.card-mint::before {
+    border-color: var(--accent-mint);
+}
+
+.card-lilac::before {
+    border-color: var(--accent-lilac);
+}
+
+.card-peach::before {
+    border-color: var(--accent-peach);
+}
+
+/* Card Time Badge */
+.time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-pink);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(255, 183, 178, 0.4);
+}
+
+/* Dynamic colors for badges */
+.card-mint .time-badge {
+    background: var(--accent-mint);
+    box-shadow: 0 4px 15px rgba(181, 234, 215, 0.4);
+    color: #4b8970;
+}
+
+.card-lilac .time-badge {
+    background: var(--accent-lilac);
+    box-shadow: 0 4px 15px rgba(199, 206, 234, 0.4);
+    color: #586498;
+}
+
+.card-peach .time-badge {
+    background: var(--accent-peach);
+    box-shadow: 0 4px 15px rgba(255, 218, 193, 0.4);
+    color: #b78564;
+}
+
+
+.section-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+/* Sub-items list */
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #796a73;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.item-row:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.item-row i {
+    color: #ff8b94;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 40px;
+}
+
+.footer h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 3.5rem;
+    color: #ff8b94;
+    margin: 0;
+    transform: rotate(2deg);
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+.footer i {
+    font-size: 2.5rem;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Loading/Empty State */
+.loading-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--card-bg);
+    border-radius: 24px;
+}
+
+.loading-state i {
+    font-size: 3rem;
+    color: #ff8b94;
+    display: inline-block;
+    animation: pulse 1.5s infinite alternate;
+}
+
+.loading-state p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: 15px;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .section-card {
+        padding: 25px 20px;
+    }
+
+    .timeline {
+        padding-left: 15px;
+    }
+
+    .footer h3 {
+        font-size: 2.8rem;
+    }
+}

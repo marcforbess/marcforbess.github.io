@@ -1,0 +1,267 @@
+.hochi-container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+}
+
+.hochi-card {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 15px 40px rgba(127, 47, 75, 0.08);
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hochi-visual-wrap {
+    position: relative;
+    margin-bottom: 2.5rem;
+    display: inline-block;
+}
+
+.hochi-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 12px 30px rgba(127, 47, 75, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hochi-image:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+.mood-vibe {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--burgundy);
+    color: white;
+    padding: 0.5rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(127, 47, 75, 0.4);
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stats-container {
+    margin-bottom: 2.5rem;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.stat-row {
+    text-align: left;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #5a4752;
+}
+
+.stat-label i {
+    margin-right: 0.4rem;
+    color: var(--burgundy);
+}
+
+.progress-bar-wrap {
+    height: 12px;
+    background: #f8f1f5;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #d87d9a, var(--burgundy));
+    border-radius: 6px;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid #f0d7e3;
+    padding: 1rem 0.5rem;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--burgundy);
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+}
+
+.action-btn span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.action-btn:hover {
+    background: #fff5f8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(127, 47, 75, 0.1);
+    border-color: var(--burgundy);
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+/* Modal styling overlap with dashboard */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 30, 38, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fff;
+    background: linear-gradient(135deg, #fff 0%, #fffbfd 100%);
+    border-radius: 32px;
+    padding: 3.5rem 2.5rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(127, 47, 75, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: modalPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: shimmer 4s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(0deg) translate(-10%, -10%);
+    }
+
+    100% {
+        transform: rotate(360deg) translate(-10%, -10%);
+    }
+}
+
+.modal-visual {
+    width: 100px;
+    height: 100px;
+    background: #fff8e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 3.5rem;
+    box-shadow: 0 8px 20px rgba(255, 202, 40, 0.2);
+    border: 3px solid #fff;
+}
+
+.modal-visual.warning {
+    background: #fff3e0;
+    box-shadow: 0 8px 20px rgba(230, 81, 0, 0.15);
+}
+
+.modal-content h2 {
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+#warning-modal h2 {
+    color: #e65100;
+}
+
+#modal-item-name {
+    font-weight: 700;
+    color: #5a4752;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.modal-content p:not(#modal-item-name) {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.9) translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .hochi-card {
+        padding: 1.5rem;
+    }
+
+    .hochi-placeholder {
+        width: 140px;
+        height: 140px;
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forbes.co - Team Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/login-page.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="auth-card" aria-labelledby="login-title">
+        <div class="auth-layout">
+          <aside class="auth-visual" aria-hidden="true">
+            <div class="visual-text" id="visual-text">
+              <p class="visual-kicker" id="theme-kicker">Fun Facts</p>
+              <h2 id="theme-title">Fresh blooms, fresh ideas</h2>
+              <p id="theme-description">
+                Tulips keep growing even after they are cut, and can stretch
+                almost an inch in a vase. A little reminder that steady growth
+                can happen every day.
+              </p>
+            </div>
+
+            <div class="illustration-card" id="theme-illustration">
+              <svg
+                class="brand-illustration"
+                viewBox="0 0 300 220"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="16" y="18" width="268" height="184" rx="22" fill="#fff8fb" />
+                <rect x="36" y="162" width="228" height="12" rx="6" fill="#ffe7a1" />
+                <path d="M84 162V108" stroke="#5f8b57" stroke-width="5" stroke-linecap="round" />
+                <path d="M140 162V92" stroke="#5f8b57" stroke-width="5" stroke-linecap="round" />
+                <path d="M196 162V112" stroke="#5f8b57" stroke-width="5" stroke-linecap="round" />
+                <path d="M76 122L84 108L92 122L84 130L76 122Z" fill="#f48fb3" />
+                <path d="M132 106L140 90L148 106L140 114L132 106Z" fill="#ffb3cd" />
+                <path d="M188 126L196 112L204 126L196 134L188 126Z" fill="#f7a3c2" />
+                <path d="M84 126L70 116L79 132" stroke="#7aa16f" stroke-width="4" stroke-linecap="round" />
+                <path d="M140 116L124 106L133 122" stroke="#7aa16f" stroke-width="4" stroke-linecap="round" />
+                <path d="M196 130L180 120L189 136" stroke="#7aa16f" stroke-width="4" stroke-linecap="round" />
+                <circle cx="236" cy="66" r="20" fill="#ffd5e6" />
+                <circle cx="236" cy="66" r="8" fill="#fff8fb" />
+              </svg>
+            </div>
+
+            <div class="visual-metrics">
+              <div>
+                <strong id="metric-a-value">17</strong>
+                <span id="metric-a-label">Tulip notes</span>
+              </div>
+              <div>
+                <strong id="metric-b-value">5</strong>
+                <span id="metric-b-label">Fresh ideas</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="auth-form-pane">
+            <div class="brand-pill">Greetings</div>
+            <h1 id="login-title">Welcome back!</h1>
+            <p class="subtitle">As usual, credentials yada yada yada</p>
+
+            <form id="login-form" novalidate>
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="username"
+                placeholder=""
+                required
+              />
+
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder=""
+                required
+                minlength="6"
+              />
+
+              <button type="submit" id="submit-btn">Log in</button>
+            </form>
+
+            <!-- <p class="hint">
+              Mock credentials: <strong>test@email.com</strong> /
+              <strong>password</strong>
+            </p> -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="js/toast-notifications.js"></script>
+    <script src="js/login-page.js"></script>
+  </body>
+</html>

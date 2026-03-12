@@ -1,0 +1,358 @@
+/* Restoration Modal Styles */
+.restore-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 10, 25, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.restore-modal.active {
+    display: flex;
+}
+
+.restore-content {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.restore-header h2 {
+    font-family: 'Outfit', sans-serif;
+    color: #7f2f4b;
+    margin-bottom: 0.5rem;
+}
+
+.restore-header p {
+    color: #76646d;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+/* Drag & Drop Game Zone */
+.restoration-zone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdf2f7;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 2px dashed #ecc4d4;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.item-flask {
+    width: 70px;
+    height: 70px;
+    background: #7f2f4b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: grab;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(127, 47, 75, 0.3);
+    transition: transform 0.2s;
+}
+
+.item-flask:active,
+.item-flask.grabbing {
+    cursor: grabbing;
+}
+
+.item-flask * {
+    pointer-events: none;
+}
+
+.target-file {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 3px solid #7f2f4b;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.target-file i {
+    font-size: 2.5rem;
+    color: #7f2f4b;
+}
+
+.target-file span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.target-file * {
+    pointer-events: none;
+}
+
+.target-file.drag-over {
+    transform: scale(1.1);
+    background: #ffecf5;
+    box-shadow: 0 0 0 10px rgba(127, 47, 75, 0.1);
+}
+
+/* Loading State */
+.restoration-loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.restore-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3e5ec;
+    border-top: 4px solid #7f2f4b;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal States */
+.phase-container {
+    display: none;
+}
+
+.restore-content[data-state="phase-1"] #phase-1 {
+    display: block;
+}
+
+.restore-content[data-state="phase-2"] #phase-2 {
+    display: block;
+}
+
+.restore-content[data-state="phase-3"] #phase-3 {
+    display: block;
+}
+
+.restore-content[data-state="loading"] .restoration-loading {
+    display: flex;
+}
+
+.restore-content[data-state="loading"] .phase-container {
+    display: none;
+}
+
+.restore-content[data-state="confirmation"] .confirmation-view {
+    display: flex;
+}
+
+.restore-content[data-state="confirmation"] .phase-container,
+.restore-content[data-state="confirmation"] .restoration-loading {
+    display: none;
+}
+
+.confirmation-view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.partial-warning {
+    background: #fff8e1;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    text-align: left;
+    border: 1px solid #ffeeba;
+}
+
+.confirmation-view h3 {
+    margin: 0;
+    color: #7f2f4b;
+}
+
+/* Phase 2: Mashing Styles */
+.mashing-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.progress-bar-wrap {
+    width: 100%;
+    height: 12px;
+    background: #f3e5ec;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7f2f4b, #ff8b94);
+    transition: width 0.1s;
+}
+
+.mash-circle {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 4px solid #7f2f4b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #7f2f4b;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.05s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mash-circle:active {
+    transform: scale(0.9);
+}
+
+.mash-circle.jitter {
+    animation: jitter 0.1s infinite;
+}
+
+@keyframes jitter {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    25% {
+        transform: translate(2px, 1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    75% {
+        transform: translate(1px, 2px) rotate(0.5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+/* Phase 3: Alignment Styles */
+.alignment-zone {
+    width: 100%;
+    height: 250px;
+    background: #2d0a19;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.alignment-target {
+    width: 60px;
+    height: 60px;
+    background: #ff8b94;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 139, 148, 0.5);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alignment-counter {
+    font-weight: bold;
+    color: #7f2f4b;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+/* ASCII Result View in Profile */
+.ascii-result {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4px;
+    line-height: 4px;
+    white-space: pre;
+    background: #000;
+    color: #0f0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.corrupted-card .flip-card-front img {
+    filter: blur(30px) saturate(0.2);
+    transform: scale(1.1);
+}
+
+.restore-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: #7f2f4b;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.restore-btn:hover {
+    background: #5c2236;
+    transform: translateY(-2px);
+}
