@@ -75,7 +75,7 @@ const ITINERARY_CONFIG = {
                 {
                     id: "activity-5",
                     name: "Shopping Spree",
-                    price: 300.00,
+                    price: 800.00,
                     image: "media/shopping-stock.webp",
                     description: "Shop til you drop at the outlets of your choice like Sephora.",
                     inStock: true
